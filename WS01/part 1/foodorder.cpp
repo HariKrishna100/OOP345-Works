@@ -39,7 +39,7 @@ namespace sdds {
 
       cout.width(2);
       cout.setf(ios::left);
-      cout << counter << " . ";
+      cout << counter << ". ";
       cout.unsetf(ios::left);
 
       if (m_custName) {
