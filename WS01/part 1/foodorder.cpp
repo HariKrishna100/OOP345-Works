@@ -45,11 +45,10 @@ namespace sdds {
       if (m_custName) {
          cout.width(10);
          cout.setf(ios::left);
-         cout << m_custName;
+         cout << m_custName << "|";
          cout.unsetf(ios::left);
 
          cout.width(25);
-         cout << "|";
          cout.setf(ios::left);
          cout << m_foodDesc;
          cout.unsetf(ios::left);
