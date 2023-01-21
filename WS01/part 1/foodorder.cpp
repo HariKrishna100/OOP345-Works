@@ -59,11 +59,11 @@ namespace sdds {
          cout << m_price * (1 + g_taxrate);
          cout.unsetf(ios::left);
 
-         cout.width(13);
+         /*cout.width(13);
          cout.precision(2);
          cout.setf(ios::right);
          cout << m_price * (1 + g_taxrate);
-         cout.unsetf(ios::right);
+         cout.unsetf(ios::right);*/
       }
       else {
          cout << "No Order";
