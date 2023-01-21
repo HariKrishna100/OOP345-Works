@@ -48,7 +48,7 @@ namespace sdds {
          cout << m_custName << "|";
          cout.unsetf(ios::left);
 
-         cout.width(18);
+         cout.width(25);
          cout.setf(ios::left);
          cout << m_foodDesc << "|";
          cout.unsetf(ios::left);
