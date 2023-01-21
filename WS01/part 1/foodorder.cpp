@@ -50,7 +50,7 @@ namespace sdds {
 
          cout.width(25);
          cout.setf(ios::left);
-         cout << m_foodDesc;
+         cout << "|" << m_foodDesc;
          cout.unsetf(ios::left);
 
          cout.width(12);
