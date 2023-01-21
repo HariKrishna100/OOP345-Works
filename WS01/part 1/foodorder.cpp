@@ -56,7 +56,7 @@ namespace sdds {
          cout.width(12);
          cout.precision(2);
          cout.setf(ios::left);
-         cout << m_price * (1 + g_taxrate);
+         cout << m_price * (1 + g_taxrate) << "|";
          cout.unsetf(ios::left);
 
          /*cout.width(13);
