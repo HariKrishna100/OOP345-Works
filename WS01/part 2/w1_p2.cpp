@@ -35,11 +35,11 @@
 	std::cout << "--------------------------\n\n";
 
 	// Keep a record of the In House and Delivery orders separately
-	sdds::FoodOrder recordedDeliveryOrders[6];
+	sdds::foodorder recordedDeliveryOrders[6];
 	// Keep a count of how many orders recorded
 	size_t numDeliveries = 0;
 
-	sdds::FoodOrder currentOrder;
+	sdds::foodorder currentOrder;
 
 	for (auto day = 1; day < argc; ++day)
 	{
@@ -79,12 +79,12 @@
 				if (in.fail())
 					break;
 
-				// read in the rest of the data as a FoodOrder
+				// read in the rest of the data as a foodorder
 				currentOrder.read(in);
 
 				// Handle the in house and delivery orders differently
 				if (ordertag == 'I') {
-					sdds::FoodOrder copy = currentOrder;
+					sdds::foodorder copy = currentOrder;
 					copy.display();
 				}
 				else if (ordertag == 'D'){ // adds the delivery orders to the record
