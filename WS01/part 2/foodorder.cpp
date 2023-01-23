@@ -1,10 +1,26 @@
+/*
+*****************************************************************************
+                          part - #2
+Full Name  : Harikrishna Paresh Patel
+Student ID#: 150739217
+Email      : Hpatel296@myseneca.ca
+Section    : NAA
+Date       : 1/21/2022
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <cstring>
+#include <iomanip>
 #include "foodorder.h"
 using namespace std;
 
 // global variables
-double g_taxrate;
-double g_dailydiscount;
+double g_taxrate = 0;
+double g_dailydiscount = 0;
 
 namespace sdds {
    // default constructor
@@ -12,19 +28,30 @@ namespace sdds {
       setEmpty();
    }
 
+   // copy constructor
    foodorder::foodorder(const foodorder& toCopy) {
       setEmpty();
       operator=(toCopy);
    }
 
+   // assignment operator
    foodorder& foodorder::operator=(const foodorder& toCopy) {
       if (this != &toCopy) {
-         delete[] m_foodDesc;
+         if (toCopy.m_custName) {
+            m_custName = new char[strlen(toCopy.m_custName) + 1];
+            strcpy(m_custName, toCopy.m_custName);
+         }
+         else {
+            m_custName = nullptr;
+         }
 
-         strcpy(m_custName, toCopy.m_custName);
-
-         m_foodDesc = new char[strlen(toCopy.m_foodDesc) + 1];
-         strcpy(m_foodDesc, toCopy.m_foodDesc);
+         if (toCopy.m_foodDesc) {
+            m_foodDesc = new char[strlen(toCopy.m_foodDesc) + 1];
+            strcpy(m_foodDesc, toCopy.m_foodDesc);
+         }
+         else {
+            m_foodDesc = nullptr;
+         }
 
          m_price = toCopy.m_price;
          m_dailySpecial = toCopy.m_dailySpecial;
@@ -32,31 +59,36 @@ namespace sdds {
       return *this;
    }
 
+   // destructor
    foodorder::~foodorder() {
       delete[] m_custName;
-      delete m_foodDesc;
-      setEmpty();
+      delete[] m_foodDesc;
    }
 
+   // set empty
    void foodorder::setEmpty() {
-      m_custName[0] = '\n';
-      m_foodDesc = {};
+      m_custName = nullptr;
+      m_foodDesc = nullptr;
       m_price = 0.0;
+      m_dailySpecial = false;
    }
 
    // read order data
    istream& foodorder::read(istream& istr) {
-      char temp[256], special[256];
+      char name[256], food[256], special[256];
       if (istr) {
+         delete[] m_custName;
          delete[] m_foodDesc;
 
-         istr.getline(m_custName, 10, ',');
+         istr.getline(name, 256, ',');
 
-         if (m_custName) {
-            istr.getline(temp, 256, ',');
+         if (strlen(name) > 0) {
+            m_custName = new char[strlen(name) + 1];
+            strcpy(m_custName, name);
 
-            m_foodDesc = new char[strlen(temp) + 1];
-            strcpy(m_foodDesc, temp);
+            istr.getline(food, 256, ',');
+            m_foodDesc = new char[strlen(food) + 1];
+            strcpy(m_foodDesc, food);
 
             istr >> m_price;
             istr.ignore(1);
@@ -85,7 +117,7 @@ namespace sdds {
       cout << counter << ". ";
       cout.unsetf(ios::left);
 
-      if (m_custName) {
+      if (m_custName != nullptr) {
          cout.width(10);
          cout.setf(ios::left);
          cout << m_custName << "|";
@@ -97,15 +129,15 @@ namespace sdds {
          cout.unsetf(ios::left);
 
          cout.width(12);
-         cout.precision(2);
          cout.setf(ios::left);
+         cout << setprecision(2) << fixed;
          cout << m_price + (m_price * g_taxrate) << "|";
          cout.unsetf(ios::left);
 
          if (m_dailySpecial) {
             cout.width(13);
-            cout.precision(2);
             cout.setf(ios::right);
+            cout << setprecision(2) << fixed;
             cout << m_price + (m_price * g_taxrate) - g_dailydiscount << endl;
             cout.unsetf(ios::right);
          }

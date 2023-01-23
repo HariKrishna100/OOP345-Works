@@ -1,0 +1,44 @@
+/*
+*****************************************************************************
+                          	      reflect
+Full Name  : Harikrishna Paresh Patel
+Student ID#: 150739217
+Email      : Hpatel296@myseneca.ca
+Section    : NAA
+Date       : 1/21/2022
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+This workshop helped me practice the concept of translation units and assured me of how
+the compiler works we had been provided with main program file through which we had to
+create a module of FoodOrder and by simply trying to compile the tou would be able to see
+linkage error the module foodorder not found and the first key steps and intrestingly I
+learnt how to pass command line arguments by the main function such as: 
+int main(int argc, char* argv[])
+where by argc represents the number of arguments and argv hold the argumets array passed 
+
+External Linkage are associated with file modules where as internal linkage are associated 
+to pass a variable to diffrent file modules so they can be accessed and be used in other files
+in our case we had a external linkage of the foodorder module which was called at first stage of
+compilation the file was extracted into the main w1_p2 object and during the linkage the compiler
+ensures the promises in the foodorder module is met or else there is an linkage error if the file is
+not found or some function is called and its not availabe in the foodorder module. In the case of 
+external linkage we had a global variables g_taxrate and g_dailydiscount in order for them to be
+accessible in the cpp file we had used the keyword extern and wrote it as it is in the cpp fle one 
+decleared in foodorder.h file and by using the key word we can make any variable gloabl and accessible to
+other modules and from 244 milestone I remember us making the comma separeated value flag to a global variable
+so that we can be able to use it in other modules to update the file read and write it is a really helpful.
+
+When we talk about static variables we mean there value are stored and they don't die once the function goes out
+of scope which helps us keep a track of data in this workshop the static variable was important we had used it as
+a counter which kept a track of the order records data read till the program ends so each read iteration count is stored
+
+I had modified the type of fooddesc variable to be a dynamic cstring to allow us capture unlimited lenght of description 
+I implimented a copy and assigment operator to be able to copy the values received this was quite simple just practice of 244
+and lastly kept a destructor that would free up the memory dynamicaly alocated the only little challenging part was how to get started
+with commmand line argumet in visual studio but I prefered matrix it was very simple there and unsolvable mystry of my study was how to
+make decimal points using cout.precision quite sadly it didn't work right for both my 244 as well but I didn't bother to research much
+and used the library sunction iomanip (manipulator) to and set the precision
