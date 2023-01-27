@@ -3,7 +3,8 @@
 using namespace std;
 namespace sdds {
    ProteinDatabase::ProteinDatabase() {
-
+      m_noOfStr = 0;
+      m_proteinSeqArr = nullptr;
    }
 
    ProteinDatabase::ProteinDatabase(const char* filename) {
