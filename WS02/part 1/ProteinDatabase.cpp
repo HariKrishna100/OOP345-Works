@@ -12,19 +12,11 @@ namespace sdds {
    }
 
    ProteinDatabase::ProteinDatabase(const ProteinDatabase& toCopy) {
-
+      operator=(toCopy);
    }
 
    ProteinDatabase& ProteinDatabase::operator=(const ProteinDatabase& toCopy) {
-      // TODO: insert return statement here
-   }
-
-   ProteinDatabase::ProteinDatabase(ProteinDatabase&& toMove) {
-
-   }
-
-   ProteinDatabase& ProteinDatabase::operator=(ProteinDatabase&& toMove) {
-      // TODO: insert return statement here
+      delete[] m_proteinSeqArr;
    }
 
    ProteinDatabase::~ProteinDatabase() {

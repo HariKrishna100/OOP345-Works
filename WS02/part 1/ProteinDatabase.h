@@ -10,8 +10,8 @@ namespace sdds {
       ProteinDatabase(const char* filename);
       ProteinDatabase(const ProteinDatabase& toCopy);
       ProteinDatabase& operator=(const ProteinDatabase& toCopy);
-      ProteinDatabase(ProteinDatabase&& toMove);
-      ProteinDatabase& operator=(ProteinDatabase&& toMove);
+      //ProteinDatabase(ProteinDatabase&& toMove);
+      //ProteinDatabase& operator=(ProteinDatabase&& toMove);
       ~ProteinDatabase();
       size_t size();
       std::string operator[](size_t);
