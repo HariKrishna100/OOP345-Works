@@ -34,7 +34,7 @@ namespace sdds {
       double tax = subtotal * (T.m_salesTax / 100);
       double total = subtotal + tax;
 
-      os << "T";      
+      os << "Toy";
       os.width(8);
       os.setf(ios::right);
       os << T.m_orderId << ":";
@@ -50,11 +50,6 @@ namespace sdds {
       os << T.m_noOfItems << " items";
       os.unsetf(ios::right);
 
-      os.width(3);
-      os.setf(ios::right);
-      os << T.m_noOfItems << " items";
-      os.unsetf(ios::right);
-      
       os.width(8);
       os.setf(ios::right);
       os << T.m_price << "/item  subtotal:";
@@ -62,19 +57,21 @@ namespace sdds {
 
       os.width(7);
       os.setf(ios::right);
-      os.fixed;
       os.precision(2);
+      os << std::fixed;
       os << subtotal;
       os.unsetf(ios::right);
 
+      os << " tax:";
       os.width(6);
       os.setf(ios::right);
-      os << " tax:" << tax;
+      os << tax;
       os.unsetf(ios::right);
 
-      os.width(7);
+      os << " total: ";
+      os.width(6);
       os.setf(ios::right);
-      os << " total:" << total << endl;
+      os << total << endl;
       os.unsetf(ios::right);
 
       return os;
