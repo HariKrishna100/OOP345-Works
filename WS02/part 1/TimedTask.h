@@ -4,21 +4,21 @@
 #include <chrono>
 namespace sdds {
    struct Task {
-      string m_taskName;
-      string m_unitsOfTime;
-      std::chrono::steady_clock::duration m_taskDuration;
+      std::string m_taskName{};
+      std::string m_unitsOfTime{};
+      std::chrono::steady_clock::duration m_taskDuration{};
    };
 
    class TimedTask {
-      int m_noOfRecords;
-      std::chrono::steady_clock::time_point m_startTime;
-      std::chrono::steady_clock::time_point m_endTime;
-      Task m_tasks[10];
+      int m_noOfRecords{};
+      std::chrono::steady_clock::time_point m_startTime{};
+      std::chrono::steady_clock::time_point m_endTime{};
+      Task m_tasks[10]{};
    public:
-      TimedTask();
+      TimedTask() = default;
       void startClock();
       void stopClock();
-      void addTask(const char* name);
+      void addTask(const char* taskName);
       friend std::ostream& operator<<(std::ostream& ostr, const TimedTask& T);
    };
 }

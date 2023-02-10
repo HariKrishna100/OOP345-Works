@@ -3,18 +3,18 @@
 #include <iostream>
 namespace sdds {
    class ProteinDatabase {
-      size_t m_noOfStr;
-      std::string* m_proteinSeqArr;
+      int m_noOfStr{};
+      std::string* m_proteinSeqArr{};
    public:
-      ProteinDatabase();
+      ProteinDatabase() = default;
       ProteinDatabase(const char* filename);
       ProteinDatabase(const ProteinDatabase& toCopy);
       ProteinDatabase& operator=(const ProteinDatabase& toCopy);
-      //ProteinDatabase(ProteinDatabase&& toMove);
-      //ProteinDatabase& operator=(ProteinDatabase&& toMove);
+      ProteinDatabase(ProteinDatabase&& toMove) noexcept;
+      ProteinDatabase& operator=(ProteinDatabase&& toMove) noexcept;
       ~ProteinDatabase();
-      size_t size();
-      std::string operator[](size_t);
+      int size();
+      std::string operator[](int);
    };
 }
 #endif // !PROTEINDATABASE_H_
