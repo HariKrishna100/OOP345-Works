@@ -68,8 +68,8 @@ namespace sdds {
       os << tax;
       os.unsetf(ios::right);
 
-      os << " total: ";
-      os.width(6);
+      os << " total:";
+      os.width(7);
       os.setf(ios::right);
       os << total << endl;
       os.unsetf(ios::right);
