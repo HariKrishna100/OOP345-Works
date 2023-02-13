@@ -1,0 +1,111 @@
+﻿  Child.cpp
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.h(21,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.h(21,16): error C2143: syntax error: missing ';' before '*'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.h(21,25): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.h(25,12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.h(25,49): error C2143: syntax error: missing ',' before '*'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(19,53): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(19,53): error C2143: syntax error: missing ',' before '*'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(19,77): error C2789: 'sdds::Child::Toy': an object of const-qualified type must be initialized
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.h(21,13): message : see declaration of 'sdds::Child::Toy'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(22,7): error C2065: 'c_toys': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(22,14): error C3079: an initializer list cannot be used as the right operand of this assignment operator
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(23,25): error C2563: mismatch in formal parameter list
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(23,25): error C2568: '=': unable to resolve function overload
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(23,25): message : could be 'iterator_traits<_Iter>::difference_type std::count(const _InIt,const _InIt,const _Ty &)'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(25,20): error C2563: mismatch in formal parameter list
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(26,10): error C2065: 'c_toys': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(26,32): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(26,19): error C2737: 'const int': const object must be initialized
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(26,29): error C2146: syntax error: missing ';' before identifier 'Toy'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(26,46): error C2760: syntax error: ';' was unexpected here; expected '{'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(27,10): error C2059: syntax error: 'for'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(27,29): error C2065: 'i': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(27,45): error C2065: 'i': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(27,48): error C2059: syntax error: ')'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(28,13): error C2065: 'c_toys': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(28,20): error C2065: 'i': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(28,29): error C2061: syntax error: identifier 'Toy'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(28,42): error C3329: syntax error: expected '}' not ')'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(31,7): error C2059: syntax error: 'else'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(31,12): error C2143: syntax error: missing ';' before '{'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(31,12): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(36,4): error C2653: 'Child': is not a class or namespace name
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(36,28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(36,28): error C2143: syntax error: missing ',' before '&'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(36,38): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(37,17): error C2065: 'toCopy': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(37,7): error C3861: '=': identifier not found
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(38,4): warning C4508: 'Child': function should return a value; 'void' return type assumed
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(40,9): error C2143: syntax error: missing ';' before '&'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(40,9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(40,4): error C2365: 'Child': redefinition; previous definition was 'function'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(36,11): message : see declaration of 'Child'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(40,11): error C2653: 'Child': is not a class or namespace name
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(40,39): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(40,39): error C2143: syntax error: missing ',' before '&'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(40,49): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(40,49): error C2059: syntax error: '{'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(40,49): error C2143: syntax error: missing ';' before '{'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(40,49): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(57,4): error C2653: 'Child': is not a class or namespace name
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(57,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(57,11): error C2365: 'Child': redefinition; previous definition was 'function'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(36,11): message : see declaration of 'Child'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(57,25): error C2065: 'toMove': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(57,31): warning C4551: function call missing argument list
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(57,33): error C2059: syntax error: '{'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(57,33): error C2143: syntax error: missing ';' before '{'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(57,33): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(61,9): error C2143: syntax error: missing ';' before '&'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(61,9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(61,4): error C2365: 'Child': redefinition; previous definition was 'function'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(36,11): message : see declaration of 'Child'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(61,11): error C2653: 'Child': is not a class or namespace name
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(61,33): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(61,27): error C2365: '=': redefinition; previous definition was 'function'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(40,27): message : see declaration of '='
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(61,36): error C2065: 'toMove': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(61,42): warning C4551: function call missing argument list
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(61,44): error C2059: syntax error: '{'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(61,44): error C2143: syntax error: missing ';' before '{'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(61,44): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(81,4): error C2653: 'Child': is not a class or namespace name
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(81,20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(82,7): error C3861: 'deallocate': identifier not found
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(83,4): warning C4508: 'Child': function should return a value; 'void' return type assumed
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(85,11): error C2653: 'Child': is not a class or namespace name
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(85,31): error C2270: 'size': modifiers not allowed on nonmember functions
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(86,14): error C2065: 'c_noOfToys': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(89,9): error C2653: 'Child': is not a class or namespace name
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(90,30): error C2065: 'c_noOfToys': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(91,17): error C2065: 'c_toys': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(93,16): error C2065: 'c_toys': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(93,22): error C2541: 'delete': cannot delete objects that are not pointers
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(96,48): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(96,48): error C2143: syntax error: missing ',' before '&'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(99,10): error C2593: 'operator <<' is ambiguous
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\ostream(272,39): message : could be 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(96,13): message : or       'std::ostream &operator <<(std::ostream &,const int)'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(99,10): message : while trying to match the argument list '(std::basic_ostream<char,std::char_traits<char>>, int)'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(99,46): error C2065: 'C': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(100,20): error C2065: 'C': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(102,11): error C2065: 'C': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(103,33): error C2065: 'C': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(104,20): error C2065: 'C': undeclared identifier
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(115,1): error C2059: syntax error: '}'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.cpp(115,1): error C2143: syntax error: missing ';' before '}'
+  ConfirmOrder.cpp
+  w4_p2.cpp
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.h(21,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.h(21,16): error C2143: syntax error: missing ';' before '*'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.h(21,25): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.h(25,12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\Child.h(25,49): error C2143: syntax error: missing ',' before '*'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\w4_p2.cpp(91,21): error C2661: 'sdds::Child::Child': no overloaded function takes 4 arguments
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\w4_p2.cpp(91,21): message : while trying to match the argument list '(const char [11], int, const sdds::Toy **, size_t)'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\w4_p2.cpp(108,22): error C2661: 'sdds::Child::Child': no overloaded function takes 4 arguments
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\w4_p2.cpp(108,22): message : while trying to match the argument list '(const char [14], int, const sdds::Toy **, int)'
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\w4_p2.cpp(189,20): error C2661: 'sdds::Child::Child': no overloaded function takes 4 arguments
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS04\part 2\w4_p2.cpp(189,20): message : while trying to match the argument list '(const char [9], int, const sdds::Toy **, unsigned int)'
+  Generating Code...

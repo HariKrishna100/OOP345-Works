@@ -1,3 +1,16 @@
+/*
+*****************************************************************************
+                          part - #2
+Full Name  : Harikrishna Paresh Patel
+Student ID#: 150739217
+Email      : Hpatel296@myseneca.ca
+Section    : NCC
+Date       : 12/2/2022
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+*****************************************************************************
+*/
 #include <iostream>
 #include <string>
 #include "Toy.h"
@@ -5,26 +18,25 @@ using namespace std;
 using namespace sdds;
 namespace sdds {
    Toy::Toy(const std::string& toy) {
-      size_t startIndex = {};
-      size_t endIndex = toy.find(':');
+      size_t stringStart = {};
+      size_t stringEnd = toy.find(':');
 
-      m_orderId = std::stoi(toy.substr(startIndex, (endIndex - startIndex)));
-      startIndex = endIndex + 1;
-      endIndex = toy.find(':', startIndex);
+      m_orderId = std::stoi(toy.substr(stringStart, (stringEnd - stringStart)));
+      stringStart = stringEnd + 1;
+      stringEnd = toy.find(':', stringStart);
 
-      m_name = toy.substr(startIndex, (endIndex - startIndex));
-
+      m_name = toy.substr(stringStart, (stringEnd - stringStart));
       m_name.erase(0, m_name.find_first_not_of(" \t\r\n"));
       m_name.erase(m_name.find_last_not_of(" \t\r\n") + 1);
 
-      startIndex = endIndex + 1;
-      endIndex = toy.find(':', startIndex);
+      stringStart = stringEnd + 1;
+      stringEnd = toy.find(':', stringStart);
 
-      m_noOfItems = std::stoi(toy.substr(startIndex, (endIndex - startIndex)));
-      startIndex = endIndex + 1;
-      endIndex = toy.find(':', startIndex);
+      m_noOfItems = std::stoi(toy.substr(stringStart, (stringEnd - stringStart)));
+      stringStart = stringEnd + 1;
+      stringEnd = toy.find(':', stringStart);
 
-      m_price = std::stod(toy.substr(startIndex, (endIndex - startIndex)));
+      m_price = std::stod(toy.substr(stringStart, (stringEnd - stringStart)));
    }
    void Toy::update(int numItems) {
       m_noOfItems = numItems;
