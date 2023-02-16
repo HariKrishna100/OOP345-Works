@@ -1,0 +1,5 @@
+﻿  Book.cpp
+  w5_p1.cpp
+  Generating Code...
+C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS05\part 1\Book.cpp(25): warning C4172: returning address of local variable or temporary
+  Project1.vcxproj -> C:\Users\Harikrishna Patel\Desktop\4th\OOP345\OOP345-Works\WS05\part 1\x64\Debug\Project1.exe
