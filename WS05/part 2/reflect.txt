@@ -1,0 +1,68 @@
+/*
+*****************************************************************************
+						Reflect W5
+Full Name  : Harikrishna Paresh Patel
+Student ID#: 150739217
+Email      : Hpatel296@myseneca.ca
+Section    : NCC
+Date       : 2/19/2022
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+1. the difference between the implementations/utilizations of a functor and a lambda expression. 
+   When is appropriate to use each one?
+
+In this workshop i had learnt how to impliment a function objects and lambda expressions.
+The functors are much efficient and faster than normal function which has better functionalities
+of storing state as it can be constructed with arguments and it can also store data members on 
+the other hand a lambda expression is much more flexible as you can it has capabilities to be
+defined inline and It is defined using the [] operator, followed by the parameter list and function 
+body. It does not have a separate class or struct definition, but it captures variables from its 
+enclosing scope which allows you to handle varibales throught try and catch blocks and for easy
+readability I prefer to impliment lambda expressions meanwhile functors are also quite useful for more
+complex types as you can customize it with constructor arguments and data members.
+
+an example of lambda:
+
+	auto lambda1 = [&](Book& b)
+	{
+		double& nPrice = b.price();
+		//       - if the book was published in US, multiply the price with "usdToCadRate"
+		//            and save the new price in the book object
+		if (b.country() == "US")
+		{
+			nPrice *= usdToCadRate;
+		}
+		//       - if the book was published in UK between 1990 and 1999 (inclussive),
+		//            multiply the price with "gbpToCadRate" and save the new price in the book object
+		if ((b.country() == "UK") && ((b.year() >= 1990) && (b.year() <= 1999)))
+		{
+			nPrice *= gbpToCadRate;
+		}
+	};
+this lambda receives a refrence of Book object as we define the logic to convert the books price depending
+on where the book was published.
+
+2. the constructor for SpellChecker generates an exception in certain conditions. How would you change your 
+   code to achieve the same result, but without exceptions (both on the constructor and on the client side)? 
+   Compare the two solutions.
+
+To target this problem I would modify the constructor of spellchecker to return an error code instead of
+throwing and exception if the file cannot be read and when the client code creates the spellchecker instance
+it should return value of constructor an handle the error accordingly.
+
+3. the classes Movie and Book contain almost identical logic in loading data from the file. How would you 
+   redesign the classes in order not to duplicate that logic
+ 
+to tackle this simple challege I would simply create virtual function implimentation and I would further go ahead and
+use the istream operator overloading to load data from file
+
+4. the classes Movie and Book are instantiated from the main() function using a custom constructor, but they also contain
+   a default constructor. Is the default constructor necessary? Could you remove it? Justify your answer.
+
+Yes a defualt constructur is a must if you are going to impliment other constructor methods however it is not neccesary if
+you would inilialize the data members but I would strongly recommend the use of default constructor as it would 
+be easy for future use.

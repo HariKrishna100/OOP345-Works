@@ -1,3 +1,16 @@
+/*
+*****************************************************************************
+								  w5p2
+Full Name  : Harikrishna Paresh Patel
+Student ID#: 150739217
+Email      : Hpatel296@myseneca.ca
+Section    : NCC
+Date       : 2/19/2022
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+*****************************************************************************
+*/
 #ifndef SDDS_COLLECTION_H_
 #define SDDS_COLLECTION_H_
 #include <iostream>
@@ -9,7 +22,6 @@ namespace sdds {
 		T* m_items{ nullptr };
 		size_t arrSize{ 0 };
 		void (*m_observer)(const Collection<T>&, const T&) { nullptr };
-
 	public:
 		Collection() {}
 		Collection(const std::string& name) {
@@ -22,6 +34,7 @@ namespace sdds {
 		Collection& operator=(const Collection& src) = delete;
 		Collection(Collection&& src) = delete;
 		Collection& operator=(Collection&& src) = delete;
+
 		~Collection() {
 			if (m_items != nullptr)
 			{
@@ -112,6 +125,7 @@ namespace sdds {
 		}
 
 	};
+
 	template <typename T>
 	std::ostream& operator<<(std::ostream& os, const Collection<T>& collection) {
 		for (size_t i = 0; i < collection.size(); i++)
