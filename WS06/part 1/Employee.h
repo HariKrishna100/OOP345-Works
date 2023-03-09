@@ -5,7 +5,7 @@
 namespace sdds {
    class Employee: public Person {
       std::string m_name{};
-      int m_age{};
+      std::string m_age{};
       std::string m_id{};
    public:
       Employee(std::istream& is);
@@ -14,6 +14,7 @@ namespace sdds {
       std::string id() const;
       std::string age() const;
       void display(std::ostream& out) const;
+      std::string clrSpace(const std::string str);
    };
 }
 #endif // !SDDS_EMPLOYEE_H_

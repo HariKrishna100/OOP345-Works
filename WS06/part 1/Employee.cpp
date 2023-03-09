@@ -2,27 +2,34 @@
 #include "Employee.h"
 using namespace std;
 namespace sdds {
-   Employee::Employee(std::istream& is) {
+   Employee::Employee(istream& is) {
 
    }
 
-   std::string Employee::status() const {
-      return std::string();
+   string Employee::status() const {
+      
    }
 
-   std::string Employee::name() const {
-      return std::string();
+   string Employee::name() const {
+      return m_name;
    }
 
-   std::string Employee::id() const {
-      return std::string();
+   string Employee::id() const {
+      return m_id;
    }
 
-   std::string Employee::age() const {
-      return std::string();
+   string Employee::age() const {
+      return m_age;
    }
 
-   void Employee::display(std::ostream& out) const {
+   void Employee::display(ostream& out) const {
 
+   }
+
+   string Employee::clrSpace(const string str) {
+      string strcleared = str.substr(0, str.find_first_of(','));
+      strcleared.erase(0, strcleared.find_first_not_of(' '));
+      strcleared.erase(strcleared.find_last_not_of(' ') + 1);
+      return strcleared;
    }
 }

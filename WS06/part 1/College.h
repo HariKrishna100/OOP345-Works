@@ -1,12 +1,16 @@
 #ifndef SDDS_COLLEGE_H_
 #define SDDS_COLLEGE_H_
 #include <iostream>
+#include <vector>
 #include "Person.h"
 namespace sdds {
    class College {
+      std::vector<Person*> m_persons;
    public:
-      College(const College& notToCopy);
-      College& operator=(const College& notToCopy);
+      College() = default;
+      College(const College& notToCopy) = delete;
+      College& operator=(const College& notToCopy) = delete;
+      ~College();
       College& operator +=(Person* thePerson);
       void display(std::ostream& out) const;
    };
