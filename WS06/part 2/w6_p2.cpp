@@ -20,9 +20,17 @@ void loadData(const char* filename, sdds::College& theCollege)
 		// TODO: This code can throw errors to signal that something 
 		//         went wrong while extracting data. Write code to catch
 		//         and handle the exceptions:
-		thePerson = sdds::buildInstance(file);
-		if (thePerson)
-			theCollege += thePerson;
+		try {
+			thePerson = sdds::buildInstance(file);
+			if (thePerson)
+				theCollege += thePerson;
+		}
+		catch (const char* err) {
+			std::cout << err << std::endl;
+		}
+		catch (std::string err) {
+			std::cout << err << std::endl;
+		}
 	}
 }
 
@@ -43,7 +51,9 @@ int main(int argc, char** argv)
 	{
 		// TODO: Create a lambda expression that receives as parameter `const sdds::Person*`
 		//         and returns true if the person is student.
-		auto students = ...;
+		auto students = [](const sdds::Person* type) {
+			return type->status() == "Student";
+		};
 		theCollege.select(students, persons);
 	
 		std::cout << "|                                        Test #3 Students in the college!                                              |\n";
@@ -60,7 +70,9 @@ int main(int argc, char** argv)
 	{
 		// TODO: Create a lambda expression that receives as parameter `const sdds::Person*`
 		//         and returns true if the person is professor.
-		auto professors = ... ;
+		auto professors = [](const sdds::Person* type) {
+			return type->status() == "Professor";
+		};
 		theCollege.select(professors, persons);
 	
 		std::cout << "|                                        Test #4 Professors in the college!                                            |\n";

@@ -17,7 +17,7 @@ namespace sdds {
       template<typename T>
       void select(const T& test, std::list<const Person*>& persons) {
          for (auto li : m_persons) {
-            if (test(li)) Person.pushback(li);
+            if (test(li)) persons.push_back(li);
          }
       }
    };

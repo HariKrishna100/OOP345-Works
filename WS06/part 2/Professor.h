@@ -6,7 +6,7 @@ namespace sdds {
    class Professor: public Employee {
       std::string m_department{};
    public:
-      Professor(std::istream& in);
+      Professor(std::istream& is);
       void display(std::ostream& out) const;
       std::string status() const;
       std::string department() const;

@@ -4,15 +4,15 @@
 using namespace std;
 namespace sdds {
    Employee::Employee(istream& is) {
-      string tempStr{};
+      string str{};
 
-      getline(is, tempStr);
+      getline(is, str);
 
-      tempStr.erase(0, tempStr.find_first_of(',') + 1);
-      m_name = clrSpace(tempStr);
+      str.erase(0, str.find_first_of(',') + 1);
+      m_name = clrSpace(str);
 
-      tempStr.erase(0, tempStr.find_first_of(',') + 1);
-      m_age = clrSpace(tempStr);
+      str.erase(0, str.find_first_of(',') + 1);
+      m_age = clrSpace(str);
 
       for (auto& age: m_age) {
          if (isdigit(age) == 0) {
@@ -20,8 +20,8 @@ namespace sdds {
          }
       }
 
-      tempStr.erase(0, tempStr.find_first_of(',') + 1);
-      m_id = clrSpace(tempStr);
+      str.erase(0, str.find_first_of(',') + 1);
+      m_id = clrSpace(str);
 
       if (tolower(m_id[0]) != 'e') {
          throw m_name + "++Invalid record!";

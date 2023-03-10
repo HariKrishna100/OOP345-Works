@@ -2,22 +2,24 @@
 #include "Professor.h"
 using namespace std;
 namespace sdds {
-   Professor::Professor(istream& in): Employee(in) {
-      string str;
-      getline(in, str);
+   Professor::Professor(istream& is): Employee(is) {
+      string str{};
+      getline(is, str);
 
-      m_department = stod(str);
+      m_department = str;
    }
 
    void Professor::display(ostream& out) const {
-
+      Employee::display(out);
+      out << endl;
+      out << "| Professor" << endl;
    }
 
    string Professor::status() const {
-      
+      return "Professor";
    }
 
    string Professor::department() const {
-      
+      return m_department;
    }
 }
