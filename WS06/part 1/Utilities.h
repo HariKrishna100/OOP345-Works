@@ -3,8 +3,6 @@
 #include <iostream>
 #include "Person.h"
 namespace sdds {
-   class Utilities {
       Person* buildInstance(std::istream& in);
-   };
 }
 #endif // !SDDS_UTILITIES_H_
