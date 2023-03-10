@@ -8,7 +8,7 @@ namespace sdds {
       std::string m_age{};
       std::string m_id{};
       std::string* m_courses{};
-      int m_count{ 0 };
+      std::string m_count{ 0 };
    public:
       Student() = default;
       Student(std::istream& is);

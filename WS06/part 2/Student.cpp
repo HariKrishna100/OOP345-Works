@@ -29,12 +29,9 @@ namespace sdds {
       str.erase(0, str.find_first_of(',') + 1);
       m_count = stod(str.substr(0, str.find_first_of(',')));
 
-      if (isdigit(m_count) == 0)
-         throw m_name + "++Invalid record!";
-
-      str.erase(0, str.find_first_of(',') + 1);
-      for (int i = 0; i < m_count; i++) {
-         m_courses[i] = clrSpace(str);
+      for (auto& num : m_count) {
+         if (isdigit(num) == 0)
+            throw m_name + "++Invalid record!";
       }
    }
 
