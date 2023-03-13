@@ -1,0 +1,52 @@
+/*
+*****************************************************************************
+                          Reflect
+Full Name  : Harikrishna Paresh Patel
+Student ID#: 150739217
+Email      : Hpatel296@myseneca.ca
+Section    : NCC
+Date       : 3/11/2022
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+In this workshop I learnt how to impliment STL Vector by dynamically allocating the objects
+this was handy and brought me few memory leak errors but through deallocating memory I solved
+the issues of memoryleak meanwhile it had been a great workshop to practice a composition
+between a person and college and the inheritance of classes.
+
+1. Why do you need to deallocate the dynamically allocated memory in your vector?
+
+We had created a dynamic vector of Person pointer held by std::string m_persons member 
+and this container automatically creates objects as required by the program as our derived
+classes inherit the base class resources objects are created and as the process of allocation
+is automatic through STL vector we must deallocate the resources manually so that theres no
+memory leak and unexpected behaviours. We do this as following:
+
+	College::~College() {
+         for (Person* person : m_persons) delete person;
+      }
+
+2. When building an object from the input file, different things can go wrong: the record represents 
+   an unknown type of person, or record  contains invalid data. How can the function loadData() detect 
+   what went wrong? Can you think at another solution than the one you have implemented?
+
+when you read the data by load function mostly the file you have to specify the delimeter and mostly the
+data isn't spaced in our case we have data with invalid formart so we have to read data by triming the
+trailing spaces we could create a function to trail all spaces in file and save it though it could be
+little more work than what we implimented and the load function reads data line by line if the line fails
+it would end until you don't clear cin in our case we had the try and catch blocks which solved loading data
+as it would check and try to see from supplied list of the data.
+
+3. In this workshop you had to use std::list<sdds::Person*> and std::vector<sdds::Person*> to store a 
+   collection of persons as pointers. Could you have used In this workshop you have and std::vector<sdds::Person> 
+   instead? Justify your answer!
+
+its not right to use std::vector<sdds::Person> as we have derived classes inheriting resources from abstract base class
+This is because if you store objects of the derived class directly in the container of the base class, object slicing 
+can occur, leading to loss of derived class-specific functionality and behavior.
+
+For example, if you have a std::vector<sdds::Person> that contains both sdds::Person objects and sdds::Student objects 
+(which is derived from sdds::Person), when you insert a sdds::Student object into the vector, it will be sliced to 
+become a sdds::Person object, losing its derived class-specific functionality.
