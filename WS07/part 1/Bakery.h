@@ -18,8 +18,10 @@ namespace sdds {
    class Bakery {
       std::vector<BakedGood> m_bakedItems;
    public:
+      Bakery() = default;
       Bakery(const char* filename);
       void showGoods(std::ostream& os) const;
+      std::string clrSpace(const std::string& str);
    };
    std::ostream& operator<<(std::ostream& out, const BakedGood& b);
 }
