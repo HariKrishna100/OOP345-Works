@@ -15,6 +15,7 @@ provided to complete my workshops and assignments.
 #include <fstream>
 #include <iomanip>
 #include <algorithm>
+#include <numeric>
 #include <string>
 #include "Bakery.h"
 using namespace std;
@@ -44,9 +45,17 @@ namespace sdds {
 
    void Bakery::showGoods(ostream& os) const {
       for_each(m_collection.begin(), m_collection.end(), [&os](const BakedGood& Bg) { 
-         os << "* " << left << setw(7) << Bg.m_stock;
-         os << "* " << left << setw(10) << Bg.m_price << "*";
+         os << Bg;
       });
+
+      int stock = accumulate(m_collection.begin(), m_collection.end(), (int)0, [](int& result, const BakedGood& Bg) {
+         return result + Bg.m_stock;
+      });
+      double price = accumulate(m_collection.begin(), m_collection.end(), (double)0.0, [](double& result, const BakedGood& Bg) {
+         return result + Bg.m_stock;
+      });
+      os << "Total Stock: " << stock << endl;
+      os << "Total Price: " << setprecision(2) << fixed << price << endl;
    }
 
    void Bakery::sortBakery(string str) {
