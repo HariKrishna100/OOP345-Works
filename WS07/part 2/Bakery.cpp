@@ -33,22 +33,25 @@ namespace sdds {
          transform(baketyp.begin(), baketyp.end(), baketyp.begin(), ::toupper);
          bItems.m_type = clrSpace(baketyp) == "BREAD" ? BakedType::BREAD : BakedType::PASTERY;
          bItems.m_desc = clrSpace(data.substr(8, 20));
-         bItems.m_expDay = stoi(clrSpace(data.substr(28, 14)));
-         bItems.m_stock = stoi(clrSpace(data.substr(42, 8)));
+         bItems.m_expDay = stoi(clrSpace(data.substr(28, 15)));
+         bItems.m_stock = stoi(clrSpace(data.substr(43, 8)));
          bItems.m_price = stod(clrSpace(data.substr(50, 6)));
 
-         m_bakedItems.push_back(bItems);
+         m_collection.push_back(bItems);
       }
       file.close();
    }
 
    void Bakery::showGoods(ostream& os) const {
-      for_each(m_bakedItems.begin(), m_bakedItems.end(), [&os](const BakedGood& B) { os << B; });
+      for_each(m_collection.begin(), m_collection.end(), [&os](const BakedGood& Bg) { 
+         os << "* " << left << setw(7) << Bg.m_stock;
+         os << "* " << left << setw(10) << Bg.m_price << "*";
+      });
    }
 
    void Bakery::sortBakery(string str) {
       transform(str.begin(), str.end(), str.begin(), ::toupper);
-      sort(m_bakedItems.begin(), m_bakedItems.end(), [str](const BakedGood& Bk1, const BakedGood Bk2) {
+      sort(m_collection.begin(), m_collection.end(), [str](const BakedGood& Bk1, const BakedGood Bk2) {
          bool success{};
          (str == "DESCRIPTION") ? success = Bk1.m_desc < Bk2.m_desc : success;
          (str == "SHELF") ? success = Bk1.m_expDay < Bk2.m_expDay : success;
@@ -58,30 +61,30 @@ namespace sdds {
    }
 
    vector<BakedGood> Bakery::combine(Bakery& Bk) {
-      vector<BakedGood> combined(m_bakedItems.size() + Bk.m_bakedItems.size());
+      vector<BakedGood> combined(m_collection.size() + Bk.m_collection.size());
       sortBakery("Price");
       Bk.sortBakery("Price");
 
-      merge(m_bakedItems.begin(), m_bakedItems.end(), Bk.m_bakedItems.begin(), Bk.m_bakedItems.end(), combine.begin(), [](const BakedGood& Bg1, const BakedGood& Bg2) {
+      merge(m_collection.begin(), m_collection.end(), Bk.m_collection.begin(), Bk.m_collection.end(), combined.begin(), [](const BakedGood& Bg1, const BakedGood& Bg2) {
          return Bg1.m_price < Bg2.m_price;
       });
       return combined;
    }
 
    bool Bakery::inStock(const string str, const BakedType& Bt) const {
-      return any_of(m_bakedItems.begin(), m_bakedItems.end(), [str, Bt](const BakedGood& Bg) {
+      return any_of(m_collection.begin(), m_collection.end(), [str, Bt](const BakedGood& Bg) {
          return Bg.m_desc == str && Bg.m_type == Bt;
       });
    }
 
    list<BakedGood> Bakery::outOfStock(BakedType Bt) const {
       list<BakedGood> outOfStk;
-      copy_if(m_bakedItems.begin(), m_bakedItems.end(), back_inserter(outOfStk), [Bt](const BakedGood& Bg) {
+      copy_if(m_collection.begin(), m_collection.end(), back_inserter(outOfStk), [Bt](const BakedGood& Bg) {
          return Bg.m_type == Bt && Bg.m_stock == 0;
       });
 
-      outOfStk.sort([](const BakedGood& Bg, const BakedGood& Bg2) {
-         return Bg.m_price < Bg2.m_price;
+      outOfStk.sort([](const BakedGood& Bg1, const BakedGood& Bg2) {
+         return Bg1.m_price < Bg2.m_price;
       });
       return outOfStk;
    }

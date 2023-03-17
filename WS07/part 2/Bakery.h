@@ -30,11 +30,10 @@ namespace sdds {
    };
 
    class Bakery {
-      std::vector<BakedGood> m_bakedItems;
+      std::vector<BakedGood> m_collection;
    public:
       Bakery() = default;
       Bakery(const char* filename);
-      void showGoods(std::ostream& os) const;
       void showGoods(std::ostream& os) const;
       void sortBakery(std::string str);
       std::vector<BakedGood> combine(Bakery& Bk);
