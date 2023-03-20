@@ -1,0 +1,102 @@
+/*
+*****************************************************************************
+                          w7p2 
+Full Name  : Harikrishna Paresh Patel
+Student ID#: 150739217
+Email      : Hpatel296@myseneca.ca
+Section    : NCC
+Date       : 3/17/2022
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my professor
+provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+1. list all the STL functions that you have used in this workshop; explain your 
+   reasoning for choosing each one, and not another.
+
+	for_each - I had used this function to display collection of items stored
+	in Bakery object the importance of this function was to iterate through each
+	items and through the insertion operator print the goods by categories and 
+	mainly this function was useful because we didn't have to tell it the number
+	of items it should iterate through instead by providing it the start and end 
+	its has the functonality to determine from where it should print.
+
+	accumulate - this is an alogorith from the numeric library it helped us get the
+	total of the price and quantity of stock I had picked this rather partial_sum because
+	accumlate does the sum directly while partial_sum its behaviour is diffrent it would add
+	values from a given range of elements and store each iteration values rather give a total
+	this isn't effecient for our case if we have huge cases of data
+
+	transform - I used this function in order to create a Uppercase instance of the product typename
+	either of Pastery or Bakery item this was more efficient than using a for loop and parsing the
+	data that needed to be modified and stored again.
+
+	sort - I used this function  by passing it through a loop and comparison of data in asscending
+	order of the items.
+
+	merge - I used this algorithm to combine two vectors and sort the vector by price in asscending order
+
+	any_of - I used this algorithm to ensure the items were in stock for a item to be on shelf its quantity
+	must be greater than 0 or it should have a description so if either is correct the item is in stock
+
+	copy_if - I used this function to copy the item that are out of stock by having the condition of stock == 0
+
+2. present the advantages of using STL algorithms vs. implementing the 
+   functionality by yourself using loops.
+
+	Improved efficiency as we can re use tha same algorith and it would work for all type be it arrys vectors
+	and saves much more time to design a code to support diffrent types
+
+	The code is few lines and simple, clean and easy to read and you don't have to worry about other functinalities
+	it uses to make this work this increases productivity as you don't spend time creating custom loops and test them
+
+	STL algorithms are often optimized for performance, meaning that they can be faster and more efficient than 
+	implementing the same functionality yourself using loops.
+
+	STL algorithms are extensively tested and used by many developers, which means that they are often more    	reliable and less prone to bugs than implementing the same functionality yourself using loops.
+
+3. for the sortBakery function, would anything differ in how it is implemented 
+   if the choice of collection was either a vector or a list? If there is a 
+   difference what is it?
+
+- our sort bakery function of vector type collection following the following steps:
+
+void Bakery::sortBakery(string str) {
+      transform(str.begin(), str.end(), str.begin(), ::toupper);
+      sort(m_collection.begin(), m_collection.end(), [str](const BakedGood& Bk1, const BakedGood Bk2) {
+         bool sort{};
+
+         if (str == "DESCRIPTION") {
+            sort = Bk2.m_desc > Bk1.m_desc;
+         }
+         else if (str == "SHELF") {
+            sort = Bk2.m_expDay > Bk1.m_expDay;
+         }
+         else if (str == "STOCK") {
+            sort = Bk2.m_stock > Bk1.m_stock;
+         }
+         else if (str == "PRICE") {
+            sort = Bk2.m_price > Bk1.m_price;
+         }
+         return sort;
+      });
+   }
+
+if we talk about list type it would be liitle different because a vector is an object and we
+have to point to its start and end as it would iterate over multiple instances to compare them
+along and sorting vectors means arranging data in memory while sorting a list only rearranges 
+the pointers to the elements. This means that sorting a vector can be more efficient when 
+accessing the elements in order, since they are stored contiguously in memory
+
+hence forth that would look like
+
+void Bakery::sortBakery(string str) {
+      
+      lst.sort() {
+
+      }
+}
+
+
+	
