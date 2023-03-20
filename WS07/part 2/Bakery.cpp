@@ -45,15 +45,17 @@ namespace sdds {
 
    void Bakery::showGoods(ostream& os) const {
       for_each(m_collection.begin(), m_collection.end(), [&os](const BakedGood& Bg) { 
-         os << Bg;
+         os << Bg << endl;
       });
 
       int stock = accumulate(m_collection.begin(), m_collection.end(), (int)0, [](int& result, const BakedGood& Bg) {
          return result + Bg.m_stock;
       });
+
       double price = accumulate(m_collection.begin(), m_collection.end(), (double)0.0, [](double& result, const BakedGood& Bg) {
-         return result + Bg.m_stock;
+         return result + Bg.m_price;
       });
+
       os << "Total Stock: " << stock << endl;
       os << "Total Price: " << setprecision(2) << fixed << price << endl;
    }
@@ -61,11 +63,21 @@ namespace sdds {
    void Bakery::sortBakery(string str) {
       transform(str.begin(), str.end(), str.begin(), ::toupper);
       sort(m_collection.begin(), m_collection.end(), [str](const BakedGood& Bk1, const BakedGood Bk2) {
-         bool success{};
-         (str == "DESCRIPTION") ? success = Bk1.m_desc < Bk2.m_desc : success;
-         (str == "SHELF") ? success = Bk1.m_expDay < Bk2.m_expDay : success;
-         (str == "STOCK") ? success = Bk1.m_stock < Bk2.m_stock : success;
-         (str == "PRICE") ? success = Bk1.m_price < Bk2.m_price : success;
+         bool sort{};
+
+         if (str == "DESCRIPTION") {
+            sort = Bk2.m_desc > Bk1.m_desc;
+         }
+         else if (str == "SHELF") {
+            sort = Bk2.m_expDay > Bk1.m_expDay;
+         }
+         else if (str == "STOCK") {
+            sort = Bk2.m_stock > Bk1.m_stock;
+         }
+         else if (str == "PRICE") {
+            sort = Bk2.m_price > Bk1.m_price;
+         }
+         return sort;
       });
    }
 
@@ -81,9 +93,11 @@ namespace sdds {
    }
 
    bool Bakery::inStock(const string str, const BakedType& Bt) const {
-      return any_of(m_collection.begin(), m_collection.end(), [str, Bt](const BakedGood& Bg) {
+      bool inStock{};
+      inStock = any_of(m_collection.begin(), m_collection.end(), [str, Bt](const BakedGood& Bg) {
          return Bg.m_desc == str && Bg.m_type == Bt;
       });
+      return inStock;
    }
 
    list<BakedGood> Bakery::outOfStock(BakedType Bt) const {
@@ -104,7 +118,7 @@ namespace sdds {
       out << " * " << left << setw(5) << b.m_expDay;
       out << " * " << left << setw(5) << b.m_stock;
       out << " * " << right << fixed << setprecision(2) << setw(8) << b.m_price;
-      out << " * " << endl;
+      out << " * ";
       return out;
    }
 
