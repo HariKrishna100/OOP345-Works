@@ -5,7 +5,7 @@ Full Name  : Harikrishna Paresh Patel
 Student ID#: 150739217
 Email      : Hpatel296@myseneca.ca
 Section    : NCC
-Date       : 3/172022
+Date       : 3/17/2022
 Authenticity Declaration:
 I have done all the coding by myself and only copied the code that my professor
 provided to complete my workshops and assignments.
@@ -87,7 +87,7 @@ namespace sdds {
       Bk.sortBakery("Price");
 
       merge(m_collection.begin(), m_collection.end(), Bk.m_collection.begin(), Bk.m_collection.end(), combined.begin(), [](const BakedGood& Bg1, const BakedGood& Bg2) {
-         return Bg1.m_price < Bg2.m_price;
+         return Bg2.m_price > Bg1.m_price;
       });
       return combined;
    }
@@ -107,7 +107,7 @@ namespace sdds {
       });
 
       outOfStk.sort([](const BakedGood& Bg1, const BakedGood& Bg2) {
-         return Bg1.m_price < Bg2.m_price;
+         return Bg2.m_price > Bg1.m_price;
       });
       return outOfStk;
    }
