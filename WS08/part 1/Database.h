@@ -4,8 +4,7 @@
 #include <memory>
 namespace sdds {
    const int m_maxEntry = 20;
-   enum class Err_Status
-   {
+   enum class Err_Status {
       Err_Success,
       Err_NotFound,
       Err_OutOfMemory,
