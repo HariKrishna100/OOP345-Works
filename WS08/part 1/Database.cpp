@@ -12,7 +12,7 @@ namespace sdds {
 
       cout << "[" << this << "]" << " Database(const std::string&)" << endl;
       while (file >> key >> value) {
-         replace(key.begin(), key.end(), '-', ' ');
+         replace(key.begin(), key.end(), '_', ' ');
          SetValue(key, value);
       }
       file.close();

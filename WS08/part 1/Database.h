@@ -10,7 +10,7 @@ namespace sdds {
       Err_OutOfMemory,
    };
    class Database {
-      static std::shared_ptr<Database> m_database;
+      inline static std::shared_ptr<Database> m_database;
       int m_noOfEntry = 0;
       std::string m_key[20]{};
       std::string m_value[20]{};
