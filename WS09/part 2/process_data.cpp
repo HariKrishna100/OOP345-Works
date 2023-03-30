@@ -2,25 +2,18 @@
 // process_data.cpp
 // 2021/1/5 - Jeevan Pant
 
-
+#include <numeric>
 #include "process_data.h"
 
 namespace sdds_ws9 {
 
 	void computeAvgFactor(const int* arr, int size, int divisor, double& avg) {
-		avg = 0;
-		for (int i = 0; i < size; i++) {
-			avg += arr[i];
-		}
-		avg /= divisor;
+		avg = std::accumulate(arr + size, arr + divisor, 0.0) / (divisor - size);
 	}
 
 	void computeVarFactor(const int* arr, int size, int divisor, double avg, double& var) {
-		var = 0;
-		for (int i = 0; i < size; i++) {
-			var += (arr[i] - avg) * (arr[i] - avg);
-		}
-		var /= divisor;
+		var = std::accumulate(arr + size, arr + divisor, 0.0,
+			[avg](double acc, int x) { return acc + (x - avg) * (x - avg); }) / (divisor - size);
 	}
 	ProcessData::operator bool() const {
 		return total_items > 0 && data && num_threads>0 && averages && variances && p_indices;
@@ -32,8 +25,16 @@ namespace sdds_ws9 {
 		//         memory for "data".
 		//       The file is binary and has the format described in the specs.
 
-
-
+		std::ifstream file(filename);
+		if (file) {
+			file.read(reinterpret_cast<char*>(&total_items), sizeof(total_items));
+			data = new int[total_items];
+			file.read(reinterpret_cast<char*>(data), sizeof(int) * total_items);
+		}
+		else {
+			total_items = 0;
+			data = nullptr;
+		}
 
 		std::cout << "Item's count in file '"<< filename << "': " << total_items << std::endl;
 		std::cout << "  [" << data[0] << ", " << data[1] << ", " << data[2] << ", ... , "
@@ -71,5 +72,67 @@ namespace sdds_ws9 {
 
 
 
+
+	int ProcessData::operator()(std::string fname_target, double& avg, double& var)
+	{
+		// TODO: divide data into a number of parts equal to the number of threads
+
+		// Compute average factors for each part of the data in parallel
+		std::vector<double> avg_factors(num_threads);
+		std::vector<std::thread> avg_threads;
+		for (int i = 0; i < num_threads; ++i)
+		{
+			avg_threads.emplace_back(
+				computeAvgFactor, std::ref(data), i * total_items / num_threads,
+				(i + 1) * total_items / num_threads, std::ref(avg_factors[i]));
+		}
+		for (auto& thread : avg_threads)
+		{
+			thread.join();
+		}
+
+		// Compute total average
+		double total_avg = 0;
+		for (auto& factor : avg_factors)
+		{
+			total_avg += factor;
+		}
+		total_avg /= num_threads;
+
+		// Compute variance factors for each part of the data in parallel
+		std::vector<double> var_factors(num_threads);
+		std::vector<std::thread> var_threads;
+		for (int i = 0; i < num_threads; ++i)
+		{
+			var_threads.emplace_back(
+				computeVarFactor, std::ref(data), i * total_items / num_threads,
+				(i + 1) * total_items / num_threads, total_avg, std::ref(var_factors[i]));
+		}
+		for (auto& thread : var_threads)
+		{
+			thread.join();
+		}
+
+		// Compute total variance
+		double total_var = 0;
+		for (auto& factor : var_factors)
+		{
+			total_var += factor;
+		}
+
+		// Update output arguments
+		avg = total_avg;
+		var = total_var;
+
+		// Save data to file
+		std::ofstream out(fname_target);
+		if (!out) return -1;
+
+		out.write(reinterpret_cast<const char*>(&total_items), sizeof(total_items));
+		out.write(reinterpret_cast<const char*>(data), sizeof(int) * total_items);
+
+		out.close();
+		return 0;
+	}
 
 }
