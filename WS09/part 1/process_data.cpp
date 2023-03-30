@@ -60,6 +60,11 @@ namespace sdds_ws9 {
 		return total_items > 0 && data != nullptr;
 	}
 
+	int ProcessData::operator()(std::string, double&, double&)
+	{
+		return 0;
+	}
+
 
 	// TODO You create implementation of function operator(). See workshop instructions for details . 
 
