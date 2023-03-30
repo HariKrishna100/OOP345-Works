@@ -2,9 +2,8 @@
 // process_data.cpp
 // 2021/1/5 - Jeevan Pant
 
-
 #include "process_data.h"
-
+using namespace std;
 namespace sdds_ws9 {
 
 	// The following function receives array (pointer) as the first argument, number of array 
@@ -43,9 +42,16 @@ namespace sdds_ws9 {
 		//         memory for "data".
 		//       The file is binary and has the format described in the specs.
 
-
-
-
+		std::ifstream file(filename);
+		if (file) {
+			file.read(reinterpret_cast<char*>(&total_items), sizeof(total_items));
+			data = new int[total_items];
+			file.read(reinterpret_cast<char*>(data), sizeof(int) * total_items);
+		}
+		else {
+			total_items = 0;
+			data = nullptr;
+		}
 
 		std::cout << "Item's count in file '"<< filename << "': " << total_items << std::endl;
 		std::cout << "  [" << data[0] << ", " << data[1] << ", " << data[2] << ", ... , "
@@ -60,16 +66,18 @@ namespace sdds_ws9 {
 		return total_items > 0 && data != nullptr;
 	}
 
-	int ProcessData::operator()(std::string, double&, double&)
+	int ProcessData::operator()(std::string filename, double& avg, double& var)
 	{
+		computeAvgFactor(data, total_items, total_items, avg);
+		computeVarFactor(data, total_items, total_items, avg, var);
+
+		std::ofstream out(filename, std::ios::binary);
+		if (!out) return -1;
+
+		out.write(reinterpret_cast<const char*>(&total_items), sizeof(total_items));
+		out.write(reinterpret_cast<const char*>(data), sizeof(int) * total_items);
+
+		out.close();
 		return 0;
 	}
-
-
-	// TODO You create implementation of function operator(). See workshop instructions for details . 
-
-
-
-
-
 }
